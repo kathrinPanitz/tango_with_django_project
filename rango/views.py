@@ -25,7 +25,12 @@ def index(request):
 
 # The following code is a new view method called about
 def about(request):
-    return render(request, 'rango/about.html')
+    # Prints out whether the method is a GET or a POST
+    print(request.method)
+    # Prints out the user name, if no one is logged in it prints 'AnonymousUser'
+    print(request.user)
+    return render(request, 'rango/about.html', {})
+
 
 
 def show_category(request, category_name_slug):
