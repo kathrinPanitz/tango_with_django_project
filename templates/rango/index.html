@@ -6,21 +6,27 @@
 {% endblock %}
 
 {% block body_block %}
-        <h1>Rango says...</h1>
-            <div>hey there partner!</div>
+        <div>
+            <h1>Rango says...</h1>
+            {% if user.is_authenticated %}
+                howdy {{ user.username }}!
+            {% else %}
+                hey there partner!
+            {% endif %}
+        </div>
             <div>
                 <h3>Most Liked Categories</h3>
                 {% if categories %}
-            <ul>
+                     <ul>
                  {% for category in categories %}
                  <li>
                      <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
                  </li>
                  {% endfor %}
-            </ul>
-            {% else %}
-                <strong>There are no categories present.</strong>
-        {% endif %}
+                    </ul>
+                {% else %}
+                    <strong>There are no categories present.</strong>
+                {% endif %}
         </div>
 
         <div>
