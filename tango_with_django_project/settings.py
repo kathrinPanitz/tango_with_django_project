@@ -25,6 +25,18 @@ LOGIN_URL = '/rango/login/'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+# If true, users can register
+REGISTRATION_OPEN = True
+# One-week activation window; you may, of course, use a different value
+ACCOUNT_ACTIVATION_DAYS = 7
+# If true, the user will be automatically logged in
+REGISTRATION_AUTO_LOGIN = True
+# The page you want users to arrive at after they successfully log in
+LOGIN_REDIRECT_URL = '/rango/'
+# The page users are directed to if they are not logged in,
+# and are trying to access pages requiring authentication
+LOGIN_URL = '/accounts/login'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -46,7 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango'
+    'rango',
+    'registration' 
 ]
 
 MIDDLEWARE_CLASSES = [
